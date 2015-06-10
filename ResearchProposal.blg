@@ -1,0 +1,9 @@
+This is BibTeX, Version 0.99dThe top-level auxiliary file: ResearchProposal.aux
+The style file: abbrv.bst
+Database file #1: reference.bib
+Warning--I didn't find a database entry for "gershma2012tutorial"
+Name 4 in "Hjort, Nils Lid and Holmes, CC and M{\"u}ller, Peter and Walker, Stephen GGhosh, Kaushik, and Ram C. Tiwari. Nonparametric and semiparametric Bayesian reliability analysis. John Wiley \& Sons, Ltd, 1982." has a comma at the end for entry hjort2010bayesian
+while executing---line 1049 of file abbrv.bst
+Name 4 in "Hjort, Nils Lid and Holmes, CC and M{\"u}ller, Peter and Walker, Stephen GGhosh, Kaushik, and Ram C. Tiwari. Nonparametric and semiparametric Bayesian reliability analysis. John Wiley \& Sons, Ltd, 1982." has a comma at the end for entry hjort2010bayesian
+while executing---line 1090 of file abbrv.bst
+(There were 2 error messages)

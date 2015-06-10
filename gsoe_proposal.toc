@@ -1,0 +1,20 @@
+\contentsline {section}{\numberline {1}Introduction}{3}
+\contentsline {section}{\numberline {2}Aim Of Research}{4}
+\contentsline {section}{\numberline {3}Literature Review}{5}
+\contentsline {subsection}{\numberline {3.1}Background}{5}
+\contentsline {subsection}{\numberline {3.2}Dirichlet Process}{5}
+\contentsline {subsubsection}{\numberline {3.2.1}Dirichlet Distribution}{5}
+\contentsline {subsubsection}{\numberline {3.2.2}Dirichlet Process}{7}
+\contentsline {subsubsection}{\numberline {3.2.3} Dirichlet Process Mixture Models}{10}
+\contentsline {subsection}{\numberline {3.3}Inference}{12}
+\contentsline {subsubsection}{\numberline {3.3.1}Variational Inference}{13}
+\contentsline {subsubsection}{\numberline {3.3.2}Markov Chain Monte Carlo Sampling}{14}
+\contentsline {subsection}{\numberline {3.4}Markov Chain Monte Carlo for DPMM}{16}
+\contentsline {subsection}{\numberline {3.5}Summary}{16}
+\contentsline {section}{\numberline {4}Methodology}{17}
+\contentsline {section}{\numberline {5}Research Plan}{20}
+\contentsline {subsection}{\numberline {5.1}Research Timetable}{20}
+\contentsline {subsection}{\numberline {5.2}Resource Required}{21}
+\contentsline {section}{\numberline {6}Current Progress}{22}
+\contentsline {section}{\numberline {7}Conclusion}{24}
+\contentsline {section}{Bibliography}{25}

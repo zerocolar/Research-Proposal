@@ -1,0 +1,68 @@
+\begin{thebibliography}{10}
+
+\bibitem{Andrieu2003}
+C.~Andrieu, N.~De~Freitas, A.~Doucet, and M.~I. Jordan.
+\newblock An introduction to mcmc for machine learning.
+\newblock {\em Machine learning}, 50(1-2):5--43, 2003.
+
+\bibitem{Blei2006}
+D.~M. Blei, M.~I. Jordan, et~al.
+\newblock Variational inference for dirichlet process mixtures.
+\newblock {\em Bayesian analysis}, 1(1):121--143, 2006.
+
+\bibitem{escobar1995bayesian}
+M.~D. Escobar and M.~West.
+\newblock Bayesian density estimation and inference using mixtures.
+\newblock {\em Journal of the american statistical association},
+  90(430):577--588, 1995.
+
+\bibitem{gershman2012tutorial}
+S.~J. Gershman and D.~M. Blei.
+\newblock A tutorial on bayesian nonparametric models.
+\newblock {\em Journal of Mathematical Psychology}, 56(1):1--12, 2012.
+
+\bibitem{ghosh1982nonparametric}
+K.~Ghosh and R.~C. Tiwari.
+\newblock {\em Nonparametric and semiparametric Bayesian reliability analysis}.
+\newblock Wiley Online Library, 1982.
+
+\bibitem{Hastings1970}
+W.~K. Hastings.
+\newblock Monte carlo sampling methods using markov chains and their
+  applications.
+\newblock {\em Biometrika}, 57(1):97--109, 1970.
+
+\bibitem{hjort2010bayesian}
+N.~L. Hjort, C.~Holmes, P.~M{\"u}ller, K.~Walker, Stephen~GGhosh, R.~C.~T.
+  Nonparametric, and .~semiparametric Bayesian reliability~analysis. John Wiley
+  \&~Sons, Ltd.
+\newblock Bayesian nonparametrics.
+\newblock {\em AMC}, 10:12, 2010.
+
+\bibitem{Jordan1999}
+M.~I. Jordan, Z.~Ghahramani, T.~S. Jaakkola, and L.~K. Saul.
+\newblock An introduction to variational methods for graphical models.
+\newblock {\em Machine learning}, 37(2):183--233, 1999.
+
+\bibitem{mcafee2012big}
+A.~McAfee, E.~Brynjolfsson, T.~H. Davenport, D.~Patil, and D.~Barton.
+\newblock Big data.
+\newblock {\em The management revolution. Harvard Bus Rev}, 90(10):61--67,
+  2012.
+
+\bibitem{Metropolis1953}
+N.~Metropolis, A.~W. Rosenbluth, M.~N. Rosenbluth, A.~H. Teller, and E.~Teller.
+\newblock Equation of state calculations by fast computing machines.
+\newblock {\em The journal of chemical physics}, 21(6):1087--1092, 1953.
+
+\bibitem{muller2004nonparametric}
+P.~M{\"u}ller and F.~A. Quintana.
+\newblock Nonparametric bayesian data analysis.
+\newblock {\em Statistical science}, pages 95--110, 2004.
+
+\bibitem{vapnik1998statistical}
+V.~N. Vapnik and V.~Vapnik.
+\newblock {\em Statistical learning theory}, volume~2.
+\newblock Wiley New York, 1998.
+
+\end{thebibliography}

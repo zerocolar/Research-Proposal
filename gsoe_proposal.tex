@@ -1,0 +1,113 @@
+%%==================================================%%
+%% Last Modified: Wed Jan 10 20:22:53 2007.
+%%==================================================%%
+
+%% For CSE.UNSW Technical Report
+\documentclass[titlepage]{csetr-notr}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amsfonts,amsthm,amssymb}
+\usepackage{setspace}
+\usepackage{url}
+\usepackage{fancyhdr}
+\usepackage{lastpage}
+\usepackage[font={small,it},belowskip=-10pt,aboveskip=5pt]{caption}
+\usepackage{multicol}
+\usepackage{subfigure}
+\usepackage{color}
+\usepackage{framed}
+\usepackage{tabularx}
+%\usepackage{float}
+%\usepackage{extramarks}
+%\usepackage{chngpage}
+%\usepackage{soul,color}
+%\usepackage{graphicx,float,wrapfig}
+\definecolor{shadecolor}{rgb}{1,1,0}
+
+\renewcommand{\and}{\hspace{.5cm}}
+\newcommand{\zz}{\hspace{.5cm}}
+
+%% specify the TR number and date
+\trnumber{0701}
+\trdate{\reportDate}
+
+\newcommand{\SupervisorName}{Dr. Xiongcai Cai}
+\newcommand{\StudentName}{Shaobo\ Dang}
+\newcommand{\StudentID}{3384106}
+\newcommand{\StudentEmail}{sdang@cse.unsw.edu.au}
+\newcommand{\reportDate}{\today}
+\newcommand{\researchTitle}{Thesis Proposal \\ \vspace{.8in}\textbf{Bayesian Nonparametric Model in Active Learning}}
+\newcommand{\assignmentTitle}{ Research Proposal}
+
+\title{%
+  \researchTitle
+}
+\author{%
+  \StudentName\ (\StudentID)\\%[2em]
+  \email{\StudentEmail}
+}
+
+
+\date{}
+\pagestyle{fancy}
+% Setup the header and footer
+\pagestyle{fancy}
+\lhead{\StudentName}
+\chead{}
+\rhead{\assignmentTitle}
+\lfoot{\reportDate}
+\cfoot{}
+\rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
+
+\fancypagestyle{plain}{
+    \fancyhf{} %clear all header and footer fields on pagestyle plain for chapter titles
+    \lhead{\StudentName}
+    \chead{}
+    \rhead{\assignmentTitle}
+    \lfoot{\reportDate}
+    \cfoot{}
+    \rfoot{Page\ \thepage\ of\ \pageref{LastPage}}
+    \renewcommand\headrulewidth{0.4pt}
+    \renewcommand\footrulewidth{0.4pt}
+}
+
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+\let\stdsection\section
+\renewcommand\section{\newpage\stdsection}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+\begin{spacing}{1.2}
+\maketitle
+
+\setcounter{page}{2}
+
+\tableofcontents
+
+\include{introduction}
+\include{aimofresearch}
+\include{review}
+\include{methodology}
+\include{researchplan}
+\include{currentprogress}
+\include{conclusion}
+
+
+
+
+%\bibliographystyle{amsplain} % By default (using th plain style) BibTeX orders citations alphabetically
+%\bibliographystyle{bib_style} %references to be listed in the order of appeareance
+%\addcontentsline{toc}{chapter}{Bibliography}
+\addcontentsline{toc}{section}{Bibliography}
+\bibliographystyle{abbrv} %references to be listed in the order of appeareance
+%\bibliographystyle{bib_style}
+%\newpage
+\bibliography{reference}
+
+\end{spacing}
+\end{document}
+
