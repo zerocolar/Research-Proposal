@@ -193,11 +193,95 @@ From above expression, it is seen that DP mixture model is an infinite mixture m
 	\subsection{Markov Chain Monte Carlo for DPMM}
 	 DPMM as widely used in the the industrial and reserch area of machine learning as the model allow for an automatic model selection in clustering problem, one of the basic yet important procudure of data mining. As can be seen from previous chapter, despite the powerful representation of the model, the infinite and unlimited component number make it hard to represent them explicitly, leading to work on developing methods of posterior inference. . 
 	 
-	 The most widely used methods in posterior inference in DPMM is to draw samples of those latent variables using a Markov Chain Monte Carlo scheme. But posterior sampling in such complex models using MCMC is often difficult because samplers proposing local changes exhibit poor convergence. To address the convergence problem, many algorithms are poposed. In this section, a brief introduction to those methods will be given.
+	 The most widely used methods in posterior inference in DPMM is to draw samples of those latent variables using a Markov Chain Monte Carlo scheme. But posterior sampling in such complex models using MCMC is often difficult because samplers proposing local changes exhibit poor convergence. To address the convergence problem, many algorithms are poposed. In this section, a brief introduction to these methods will be given.
+	 \begin{figure}[tbph!]
+		 \centering
+		 \subfigure[Graphic model for P\'{o}ly Urn Presentation]{
+			 	\label{fig:polyurn}\includegraphics[scale=0.15]{Polyaurn}}
+		 \hspace{1in}
+		 \subfigure[Graphic model for P\'{o}ly Urn Presentation]{
+			 	\label{fig:crp}\includegraphics[scale=0.15]{CRP}}
+		\caption{Graphic Model of two DPMM representations}
+		\label{fig:GPM}
+	 \end{figure}
 	 \begin{itemize}
 	 	\item \textbf{Gibbs Sampling based on P\'{o}lya urn} \\
-	 	In the P\'{o}lya urn representation of DPMM (\ref{eqa:DPM}) as shown in figure
+	 	In the P\'{o}lya urn representation of DPMM (\ref{eqa:DPM}) as shown in figure the only unknown variables are $\{\phi_i\}_{i=1}^n$. This leads to a simple Gibbs sampling methods: alternatively draw $\phi_i$ from its posterior distribution conditioned on the other variables $\phi_{-i}$ and all the observations. Thus we have:
+	 	\begin{equation}
+	 		\phi_i=\phi|\mathbf{\phi}_{-i}	\sim \frac{\alpha_0G_0(\phi)}{\alpha_0+n-1}+\frac{\sum_{j\neq i}\delta(\phi-\phi_j)}{\alpha_0+n-1}
+	 	\end{equation}
+	 	combined with the likelihood, we get the posterior of $\phi_i$ conditioned on $\mathbf{\phi}_{-i}$:
+	 	\begin{eqnarray}
+	 	    \begin{split}
+	 	    p(\phi|\mathbf{\phi}_{-i},x_i)&= b\alpha_0q_0H(\phi_i|x_i)+b\sum_{j\neq i}F(x_i|\phi_j)\delta(\phi_i-\phi_j)\\
+	 	    H(\phi_i|x_i)&=\frac{G_0(\phi_i)F(x_i|\phi_i)}{\int_{\phi}G_0(\phi)F(x_i|\phi)}\\
+	 	    q_0&=\int_{\phi}G_0(\phi)F(x_i|\phi)\\
+	 	    b&=\left(\alpha_0q_0+\sum_{j\neq i}F(x_i|\phi_j)\right)^{-1}
+	 	    \end{split}
+	 	\end{eqnarray}
+	 
+	 	When $G_0$ is a conjugate prior for $F(x_i|\phi_i)$, the posterior distribution of $\phi_i, H(\phi_i|x_i)$ and the marginal distribution of $x_i, q_0$, have analytical forms and the Gibbs sampling can be easily performed.
+	 	
+	 	\item \textbf{Gibbs sampling using latent indicator variables}\\
+	 	Though the Gibbs sampling based on P\'{o}lya urn representation is very simple to implement, it is very inefficient. In each iteration, we need to sample the cluster parameter for n times and each time we only change the parameter for a single data point. As we know, there are usually lots of data points share the same cluster parameter. A more efficient way is obvious to operate the data points belonging the same cluster simultaneously. To do this, we need to employ the DPMM in stick-breaking representation, where cluster parameters are moved outside of the plate of $x_i$ and the indicator variables are used to identify the cluster $x_i$ associated to.
+	 	
+	 	For each indicator variable $z_i$, the conditional posterior is:
+	 	\begin{eqnarray}
+		 	\begin{split}
+			 &	p(z_i=k|z_{-i},x,\pi,\{\theta_k\}_{k=1}^K,\alpha_0,\lambda)  \\
+			 	 &= p(z_i=k|x_i,\pi,\{\theta_k\}_{k=1}^K) \\
+			 	& \propto  p(z_i=k|\pi,\{\theta_k\}_{k=1}^K)p(x_i|z_i=k,\pi,\{\theta_k\}_{k=1})  \\
+			 	 &=p(z_i=k|\pi)p(x_i|\theta_k) \\
+			 	& =\pi_kF(x_i|\theta_k)
+		 	\end{split}
+	 	\end{eqnarray}
+
+	 For the mixture weight $\pi$, we need to derive its conditional posterior:
+	 \begin{eqnarray}
+		 \begin{split}
+			 p(\pi|z,x,\{\theta_k\}_{k=1}^K,\alpha_0,\lambda) &= p(\pi|z,\alpha_0)\\
+			 	&=Dir(n_1+\alpha_0/K,\cdots,n_k+\alpha_0/K)
+		 \end{split}
+	 \end{eqnarray}
+	 For the cluster parameters, the conditional posterior is :
+	 \begin{eqnarray}
+		 \begin{split}
+			 p(\theta_k|\theta_{-k},x,z,\pi,\alpha_0,\lambda) &=p(\theta_k|\theta_{-k},x,z,\lambda)  \\
+			 &= p(\theta_k|x_k,\lambda)\\
+			 &\propto G_0(\theta_k|\lambda)L(x_k|\theta_k)
+		 \end{split}
+	 \end{eqnarray}
+	 The mixture weight $\pi$ is explicitly sampled from a Dirichlet distribution. However, such sampling is difficult when $K$ goes to infinite. One option is to integrate $\pi$ out. This requires us to derive $z_i$’s conditional posterior:
+	 \begin{eqnarray}
+		 \begin{split}
+			 &	p(z_i=k|z_{-i},x,\pi,\{\theta_k\}_{k=1}^K,\alpha_0,\lambda)  \\
+			 &= p(z_i=k|x_i,z_{-i},\theta,\alpha_0) \\
+			 & \propto  p(z_i=k|z_{-i},\theta,\alpha_0)p(x_i|z_i=k,z_{-i},\theta_k,\alpha_0)  \\
+			 &=p(z_i=k|z_{-i},\alpha_0)p(x_i|\theta_k) \\
+			 & =\frac{n_{k,-i}+\alpha_0/K}{n+\alpha_0-1}F(x_i|\theta_k)
+		 \end{split}
+	 \end{eqnarray}
+	 \item \textbf{Collpsed Gibbs Sampling}
+	 When using conjugate prior, we can often integrate out the cluster parameters $\theta_k$ and then we need sample$z_i$ only. This method is called as collapsed Gibbs sampling. The justification of integrating out the cluster parameters is due to the Rao-Blackwell Theorem, which states that marginalization of some variables from a joint distribution always reduces the variance of later estimates. Then the posterior distribution of $z$ is:
+	  \begin{eqnarray}
+		  \begin{split}
+			  &	p(z_i=k|z_{-i},x,\alpha_0,\lambda)  \\
+			  & = p(z_i=k|x_i,z_{-i},x_{-i},\alpha_0,\lambda) \\
+			  & \propto  p(z_i=k|z_{-i},x_{-i},\lambda,\alpha_0)p(x_i|z_i=k,z_{-i},x_{-i},\lambda,\alpha_0)  \\
+			  & =p(z_i=k|z_{-i},\alpha_0)p(x_i|x_{k,-i},\lambda) 
+		  \end{split}
+	  \end{eqnarray}
 	 \end{itemize}
+	 The existing methods on solving the low convergency problem of 
+	 \begin{itemize}
+	 	\item Split-Merge \\
+	 	Although the Gibbs sampling approach is straightforward and easily implemented, it can be slow to converge and mix poorly. When two or more mixture components have similar parameters, the Gibbs samplin gmethod may become trapped in a local mode that corresponds to an incorrect clustering of data points. This mixting problem is due to the incremental nature of the Gibbs sampler, which is unable to move a group of observations to a new mixture component simultaneously and to move a single observation to a new mixture component because the proposed intermediate state has low probability. 
+	 	
+	 	Based on this, Neal and Jain\cite{jain2004split}proposed split-merge sampling scheme allowing a group of observations to be updated simultaneously since neighbourin gobservations would support the formation of a new component. The method introduced a Metropolis-Hasting method that avoids the problems associated with the Gibbs sampling procedure and is suitable for high-dimensional data. The MH updates involve simple parametric distributions as the proposal distribution. In order to split mixture components, the method employ a complex proposal distribution obtained by using a trstriced Gibbs sampling scan for the latent class variables. The method is able to quickly traverse the state space and frequently visit high-probability modes by splitting or merging a group of observations in each update and bypassin gthe incremental updates of the Gibbs sampler.
+	 	\item Super Cluster
+	 	\item Sub Cluster
+	 \end{itemize}
+	 	 
 	\subsection{Summary}
 	
 	In this section, we briefly reviewed the basics in Dirichlet process, including their three different representations-P\'{o}lya urn, Chinese Restaurant Process and Stick-breaking Process, and each one shows the different properties of Dirichlet Process. Also, we delve into the inference strategies of Dirichlet Process, including Markov Chain Monte Carlo and Variational Inference. 

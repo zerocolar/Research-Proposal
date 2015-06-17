@@ -1,0 +1,68 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: gsoe_proposal.aux
+A level-1 auxiliary file: introduction.aux
+A level-1 auxiliary file: aimofresearch.aux
+A level-1 auxiliary file: review.aux
+A level-1 auxiliary file: methodology.aux
+A level-1 auxiliary file: researchplan.aux
+A level-1 auxiliary file: currentprogress.aux
+A level-1 auxiliary file: conclusion.aux
+The style file: abbrv.bst
+Database file #1: refer.bib
+Repeated entry---line 231 of file refer.bib
+ : @article{jain2004split
+ :                       ,
+I'm skipping whatever remains of this entry
+Warning--I didn't find a database entry for "Settles2010"
+Warning--I didn't find a database entry for "gershma2012tutorial"
+Warning--I didn't find a database entry for "hjort2010bayesian"
+Warning--I didn't find a database entry for "Andrieu2003"
+Warning--I didn't find a database entry for "Jordan1999"
+Warning--I didn't find a database entry for "Blei2006"
+Warning--I didn't find a database entry for "Metropolis1953"
+Warning--I didn't find a database entry for "Hastings1970"
+Warning--I didn't find a database entry for "huang2010active"
+Warning--I didn't find a database entry for "ghosh1982nonparametric"
+You've used 6 entries,
+            2118 wiz_defined-function locations,
+            560 strings with 4971 characters,
+and the built_in function-call counts, 1977 in all, are:
+= -- 196
+> -- 93
+< -- 2
++ -- 38
+- -- 30
+* -- 141
+:= -- 337
+add.period$ -- 18
+call.type$ -- 6
+change.case$ -- 32
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 73
+empty$ -- 147
+format.name$ -- 30
+if$ -- 404
+int.to.chr$ -- 0
+int.to.str$ -- 6
+missing$ -- 7
+newline$ -- 33
+num.names$ -- 12
+pop$ -- 28
+preamble$ -- 1
+purify$ -- 27
+quote$ -- 0
+skip$ -- 57
+stack$ -- 0
+substring$ -- 119
+swap$ -- 14
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 22
+warning$ -- 0
+while$ -- 21
+width$ -- 7
+write$ -- 68
+(There was 1 error message)
